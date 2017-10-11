@@ -1,0 +1,58 @@
+{
+  "project_info": {
+    "project_number": "798694856649",
+    "firebase_url": "https://ridewithus-e6e58.firebaseio.com",
+    "project_id": "ridewithus-e6e58",
+    "storage_bucket": "ridewithus-e6e58.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798694856649:android:409e5f0faa5ed6cd",
+        "android_client_info": {
+          "package_name": "com.capstone.ridewithus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "798694856649-jq4r4nckr29tn7o3rqo7fua54qkcpico.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.capstone.ridewithus",
+            "certificate_hash": "37128705a5e4db777a50d3e09382e5fe72472f15"
+          }
+        },
+        {
+          "client_id": "798694856649-6b0kiu2hm8115ble5q9evqfehescajvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq4oYhaZpLNcX1g8K6MHrhB0_lPFKvxfE"
+        },
+        {
+          "current_key": "AIzaSyCioy1tOjZIrYaGg-2ksijghNvVLdDavM4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "798694856649-6b0kiu2hm8115ble5q9evqfehescajvp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
