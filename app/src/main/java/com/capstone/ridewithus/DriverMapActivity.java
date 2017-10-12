@@ -11,6 +11,11 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.directions.route.AbstractRouting;
+import com.directions.route.Route;
+import com.directions.route.RouteException;
+import com.directions.route.Routing;
+import com.directions.route.RoutingListener;
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.google.android.gms.common.ConnectionResult;
@@ -26,6 +31,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 
 public class DriverMapActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
@@ -55,9 +62,12 @@ public class DriverMapActivity extends FragmentActivity implements OnMapReadyCal
                 startActivity(intent);
                 finish();
                 return;
+
+
             }
         });
     }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -135,4 +145,5 @@ public class DriverMapActivity extends FragmentActivity implements OnMapReadyCal
         GeoFire geoFire = new GeoFire(ref);
         geoFire.removeLocation(userId); // when the user getsout of this activity removing the user from available
     }
+
 }
