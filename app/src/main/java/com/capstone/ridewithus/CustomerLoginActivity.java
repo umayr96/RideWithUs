@@ -23,7 +23,7 @@ public class CustomerLoginActivity extends AppCompatActivity {
     private EditText mEditTextEmail, mEditTextPassword;
     private Button btnLogin, btnRegister;
 
-    // creating Authentication Variable
+    // creating Authentication Variables to use in later on
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener fireBaseAuthListener;
 
