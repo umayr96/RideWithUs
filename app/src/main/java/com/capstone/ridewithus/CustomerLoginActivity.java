@@ -73,7 +73,7 @@ public class CustomerLoginActivity extends AppCompatActivity {
                         if (!task.isSuccessful()) {
                             Toast.makeText(CustomerLoginActivity.this,"Error While Trying To Sign Up", Toast.LENGTH_SHORT).show();
                         }
-                        // if it is succesful then it will add the user to the database with a special key
+                        // if it is succesful then it will add the user to the database with special key
                         else{
                             String userId = mAuth.getCurrentUser().getUid();
                             DatabaseReference currentUser = FirebaseDatabase.getInstance().getReference().child("users").child("customers").child(userId);
