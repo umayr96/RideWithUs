@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class CustomerLoginActivity extends AppCompatActivity {
 
+    //comment for testing
 
     private EditText mEditTextEmail, mEditTextPassword;
     private Button btnLogin, btnRegister;
