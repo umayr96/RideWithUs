@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".DrivingOrRidingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -46,6 +46,8 @@
             android:label="@string/title_activity_driver_map">
         </activity>
         <activity android:name=".CustomerMapActivity">
+        </activity>
+        <activity android:name=".MainActivity">
         </activity>
     </application>
 

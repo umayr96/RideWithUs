@@ -59,7 +59,7 @@ public class CustomerMapActivity  extends FragmentActivity implements OnMapReady
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut(); // signing out the currnet user
-                Intent intent = new Intent(CustomerMapActivity.this, MainActivity.class);// going back to the main activity
+                Intent intent = new Intent(CustomerMapActivity.this, DrivingOrRidingActivity.class);// going back to the main activity
                 startActivity(intent);
                 finish();
                 return;
