@@ -49,8 +49,6 @@
         </activity>
         <activity android:name=".DriverSetup">
         </activity>
-        <activity android:name=".PassengerSetup">
-        </activity>
     </application>
 
 </manifest>
