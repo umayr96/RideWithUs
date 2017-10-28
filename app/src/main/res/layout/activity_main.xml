@@ -3,8 +3,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.capstone.ridewithus.MainActivity">
+    android:layout_width="385"
+    android:layout_height="615"
+    tools:context="com.capstone.ridewithus.MainActivity"
+    android:background="@drawable/bg">
 
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@drawable/loginbtn"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="403dp" />
+
+    <Button
+        android:id="@+id/btnSignup"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:background="@drawable/signupbtn"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="486dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/title"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="136dp" />
 </android.support.constraint.ConstraintLayout>
