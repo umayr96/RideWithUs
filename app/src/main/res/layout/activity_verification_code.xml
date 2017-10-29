@@ -12,7 +12,7 @@
         android:id="@+id/imageView5"
         android:layout_width="191dp"
         android:layout_height="38dp"
-        app:srcCompat="@drawable/Verification"
+        app:srcCompat="@drawable/verification"
         tools:layout_editor_absoluteY="61dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
