@@ -6,6 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 //import com.capstone.ridewithus.CustomerLoginActivity;
 //import com.capstone.ridewithus.DriverLoginActivity;
 //
@@ -25,7 +29,9 @@ public class DrivingOrRidingActivity extends AppCompatActivity {
         btnDriver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DrivingOrRidingActivity.this, DriverLoginActivity.class);
+              //  String currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                //DatabaseReference driverRef =  FirebaseDatabase.getInstance().getReference().child("users").child("drivers").child(currentUser);
+                Intent intent = new Intent(DrivingOrRidingActivity.this, DriverMapActivity.class);
                 startActivity(intent);
                 finish();
                 return;
@@ -36,7 +42,10 @@ public class DrivingOrRidingActivity extends AppCompatActivity {
         btnCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DrivingOrRidingActivity.this, CustomerLoginActivity.class);
+                //String currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                //DatabaseReference driverRef =  FirebaseDatabase.getInstance().getReference().child("users").child("customers").child(currentUser);
+
+                Intent intent = new Intent(DrivingOrRidingActivity.this, CustomerMapActivity.class);
                 startActivity(intent);
                 finish();
                 return;
