@@ -79,6 +79,18 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        // this is when the user clicks teh register button it will move to the register activity
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
+
     }
 
     // this method is to start the authentication listener
