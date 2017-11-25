@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        btnSignUp = (Button) findViewById(R.id.btnSignUp);
+        btnSignUp = (Button) findViewById(R.id.btnSignup);
         // this is when the user clicks the register button it will move to the register activity
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override

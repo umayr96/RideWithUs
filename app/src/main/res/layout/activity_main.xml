@@ -27,7 +27,7 @@
         app:layout_constraintHorizontal_bias="0.0"/>
 
     <Button
-        android:id="@+id/btnSignUp"
+        android:id="@+id/btnSignup"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginLeft="42dp"
