@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // this is when the user clicks teh register button it will move to the register activity
+        // this is when the user clicks the register button it will move to the register activity
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
