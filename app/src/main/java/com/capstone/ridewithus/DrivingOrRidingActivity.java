@@ -45,7 +45,7 @@ public class DrivingOrRidingActivity extends AppCompatActivity {
                 //String currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 //DatabaseReference driverRef =  FirebaseDatabase.getInstance().getReference().child("users").child("customers").child(currentUser);
 
-                Intent intent = new Intent(DrivingOrRidingActivity.this, CustomerMapActivity.class);
+                Intent intent = new Intent(DrivingOrRidingActivity.this, FilterActivity.class);
                 startActivity(intent);
                 finish();
                 return;
