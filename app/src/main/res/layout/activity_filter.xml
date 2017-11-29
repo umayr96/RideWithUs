@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView18" />
 
     <RadioButton
-        android:id="@+id/radioButtonDavis"
+        android:id="@+id/rdDavis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <RadioButton
-        android:id="@+id/radioButtonHMC"
+        android:id="@+id/rdHMC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -57,10 +57,10 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView18"
         app:layout_constraintHorizontal_bias="0.381"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/radioButtonDavis" />
+        app:layout_constraintTop_toBottomOf="@+id/rdDavis" />
 
     <RadioButton
-        android:id="@+id/radioButtonTrafalgar"
+        android:id="@+id/rdTrafagler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="@+id/imageView18"
         app:layout_constraintHorizontal_bias="0.381"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toBottomOf="@+id/radioButtonHMC" />
+        app:layout_constraintTop_toBottomOf="@+id/rdHMC" />
 
     <Button
         android:id="@+id/btnfilter"
@@ -80,7 +80,7 @@
         android:background="@drawable/btnfilter"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioButtonTrafalgar " />
+        app:layout_constraintTop_toBottomOf="@+id/rdTrafagler " />
 
     <ListView
         android:id="@+id/ListViewFeed"
