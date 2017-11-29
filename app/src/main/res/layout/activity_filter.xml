@@ -76,11 +76,11 @@
         android:id="@+id/btnfilter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/btnfilter"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rdTrafagler " />
+        app:layout_constraintTop_toBottomOf="@+id/rdTrafagler" />
 
     <ListView
         android:id="@+id/ListViewFeed"

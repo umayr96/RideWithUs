@@ -1,5 +1,6 @@
 package com.capstone.ridewithus;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,6 +37,19 @@ public class FilterActivity extends AppCompatActivity {
         radioButtonHMC = (RadioButton) findViewById(R.id.rdHMC);
         radioButtonTraf = (RadioButton) findViewById(R.id.rdTrafagler);
 
+        // just for the demo
+        btnFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FilterActivity.this, CustomerMapActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+
+            }
+        });
+
+
         // Read From Database
         mDatabase = FirebaseDatabase.getInstance().getReference().child("feed").child("Davis");
         listViewFeed = (ListView) findViewById(R.id.ListViewFeed);
@@ -44,6 +58,7 @@ public class FilterActivity extends AppCompatActivity {
 
         listViewFeed.setAdapter(arrayAdapterDavis);
 
+        /*
         btnFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +75,7 @@ public class FilterActivity extends AppCompatActivity {
            }
 
             }
-        });
+        });*/
 
 
 
