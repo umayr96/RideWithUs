@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -22,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText textFirstName, textLastName, textEmail, textPassword, textConfirmPassword;
 
     private FirebaseAuth mAuth;
+    private FirebaseUser mFirebaseUser;
     private FirebaseAuth.AuthStateListener fireBaseAuthListener;
 
     @Override
@@ -65,7 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
                   }
                   else
                   {
-                      // sending the information to the dataabse
+                      // sending the information to the database
                       mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                           @Override
                           public void onComplete(@NonNull Task<AuthResult> task) {
@@ -83,10 +85,13 @@ public class RegisterActivity extends AppCompatActivity {
                                   currentUser.child("First Name").setValue(firstName);
                                   currentUser.child("Last Name").setValue(lastName);
                                   currentUser.child("Email").setValue(email);
-                                  Toast.makeText(RegisterActivity.this,"Account Has Been Created", Toast.LENGTH_LONG).show();
+                                  // firebase finds the current user and sends and email verification to the user
+                                  mFirebaseUser = mAuth.getCurrentUser();
+                                  mFirebaseUser.sendEmailVerification();
+                                  Toast.makeText(RegisterActivity.this,"Account Has Been Created, confirm account by clicking link in verification email", Toast.LENGTH_LONG).show();
 
-                                  // move to the next page which is the verification code
-                                  Intent intent = new Intent(RegisterActivity.this, VerificationCodeActivity.class);
+                                  // move to the login page and once the user has been verified they can login
+                                  Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                   startActivity(intent);
                                   finish();
                                   return;
