@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); //getting the cuurent login user
-                if (user!=null)// if the user is not null and exist in the database will move to the next activity
+                if ((user!=null) && (user.isEmailVerified())) // if the user is not null and exist in the database will move to the next activity
                 {
                     Intent intent = new Intent(LoginActivity.this, DrivingOrRidingActivity.class);
                     startActivity(intent);
