@@ -38,8 +38,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".DriverMapActivity"
+        <activity android:name=".DriverMapActivity"
             android:label="@string/title_activity_driver_map"></activity>
         <activity android:name=".CustomerMapActivity"></activity>
         <activity android:name=".DrivingOrRidingActivity"></activity>
@@ -50,14 +49,14 @@
         <activity android:name=".FilterActivity"></activity>
     </application>
 
-    <supports-screens android:resizeable="true"
+    <!-- <supports-screens android:resizeable="true"
     android:smallScreens="true"
     android:normalScreens="true"
     android:largeScreens="true"
     android:xlargeScreens="true"
     android:anyDensity="true"
-    android:requiresSmallestWidthDp="50"
-    android:compatibleWidthLimitDp="100"
-    android:largestWidthLimitDp="50"/>
+    android:requiresSmallestWidthDp="5"
+    android:compatibleWidthLimitDp="10"
+    android:largestWidthLimitDp="5"/> -->
 
 </manifest>
