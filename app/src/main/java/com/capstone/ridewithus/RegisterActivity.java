@@ -68,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
                   else
                   {
                       // sending the information to the database
-                      mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                      mAuth.createUserWithEmailAndPassword(email + "@sheridancollege.ca", password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                           @Override
                           public void onComplete(@NonNull Task<AuthResult> task) {
                               // if the task is unsuccessful then a meesage will be displayed to the user
@@ -84,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
                                   // adding all the information to the database under this user
                                   currentUser.child("First Name").setValue(firstName);
                                   currentUser.child("Last Name").setValue(lastName);
-                                  currentUser.child("Email").setValue(email);
+                                  currentUser.child("Email").setValue(email + "@sheridancollege.ca");
                                   // firebase finds the current user and sends and email verification to the user
                                   mFirebaseUser = mAuth.getCurrentUser();
                                   mFirebaseUser.sendEmailVerification();

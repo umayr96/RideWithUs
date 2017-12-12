@@ -52,6 +52,15 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
                     return;
                 }
+                /*
+                else if
+                {
+                    Toast.makeText(LoginActivity.this,"Please check your sheridan email and verify the account", Toast.LENGTH_SHORT).show();
+                }
+               /* else
+                {
+                    Toast.makeText(LoginActivity.this,"Username or Password is incorrect", Toast.LENGTH_SHORT).show();
+                }*/
             }
         };
 
@@ -63,12 +72,12 @@ public class LoginActivity extends AppCompatActivity {
                 final String password = mEditTextPassword.getText().toString();
                 if((email.equalsIgnoreCase("")) || (password.equalsIgnoreCase("")))
                 {
-                    Toast.makeText(LoginActivity.this,"Sorry Incorrect Email or Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this,"Please Fill out all fields", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
                     // gettign the email and passowrd and sending it to the database to check if the user exists
-                    mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    mAuth.signInWithEmailAndPassword(email + "@sheridancollege.ca",password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (!task.isSuccessful()) {
