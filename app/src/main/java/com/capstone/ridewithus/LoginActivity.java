@@ -52,15 +52,6 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
                     return;
                 }
-                /*
-                else if
-                {
-                    Toast.makeText(LoginActivity.this,"Please check your sheridan email and verify the account", Toast.LENGTH_SHORT).show();
-                }
-               /* else
-                {
-                    Toast.makeText(LoginActivity.this,"Username or Password is incorrect", Toast.LENGTH_SHORT).show();
-                }*/
             }
         };
 
