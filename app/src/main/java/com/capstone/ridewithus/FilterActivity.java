@@ -34,23 +34,10 @@ public class FilterActivity extends AppCompatActivity {
         radioButtonHMC = (RadioButton) findViewById(R.id.rdHMC);
         radioButtonTraf = (RadioButton) findViewById(R.id.rdTrafagler);
 
-        // just for the demo
-        /*
         btnFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FilterActivity.this, CustomerMapActivity.class);
-                startActivity(intent);
-                finish();
-                return;
-
-            }
-        });*/
-
-        btnFilter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+           // which ever radio button is checked the value will be stored to the whichFeed variable
            if (radioButtonDavis.isChecked())
            {
             whichFeed = "Davis";
@@ -66,6 +53,7 @@ public class FilterActivity extends AppCompatActivity {
                whichFeed = "HMC";
            }
 
+                // Starting the new displat feed activity and will send the correct value to display
                 Intent intent = new Intent(FilterActivity.this, DisplayFeedActivity.class);
                 //Create the bundle
                 Bundle bundle = new Bundle();

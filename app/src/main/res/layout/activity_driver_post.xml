@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/postRadioDavis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -55,22 +55,22 @@
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <RadioButton
-            android:id="@+id/radioButton5"
+            android:id="@+id/postRadioHMC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="HMC Campus, Mississauga"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton4" />
+            app:layout_constraintTop_toBottomOf="@+id/postRadioDavis" />
 
         <RadioButton
-            android:id="@+id/radioButton6"
+            android:id="@+id/postRadioTrafalgar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="Trafalgar Campus, Oakville"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/radioButton5" />
+            app:layout_constraintTop_toBottomOf="@+id/postRadioHMC" />
     </RadioGroup>
 
     <TextView
@@ -87,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/textClock"
         android:layout_width="94dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -115,7 +115,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/sliderSeat"
         android:layout_width="290dp"
         android:layout_height="33dp"
         android:layout_marginEnd="8dp"
@@ -141,7 +141,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.16"
-        app:layout_constraintStart_toEndOf="@+id/seekBar"
+        app:layout_constraintStart_toEndOf="@+id/sliderSeat"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
@@ -157,7 +157,7 @@
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/chargeText"
         android:layout_width="129dp"
         android:layout_height="38dp"
         android:layout_marginBottom="8dp"
