@@ -20,12 +20,9 @@ import java.util.ArrayList;
 
 public class FilterActivity extends AppCompatActivity {
 
-    private DatabaseReference mDatabase;
-    private ListView listViewFeed;
     private Button btnFilter;
     private RadioButton radioButtonHMC, radioButtonDavis, radioButtonTraf;
-
-    private ArrayList<String> feedArrayDavis = new ArrayList<String>();
+    private String whichFeed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +35,7 @@ public class FilterActivity extends AppCompatActivity {
         radioButtonTraf = (RadioButton) findViewById(R.id.rdTrafagler);
 
         // just for the demo
+        /*
         btnFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,69 +45,36 @@ public class FilterActivity extends AppCompatActivity {
                 return;
 
             }
-        });
+        });*/
 
-
-        // Read From Database
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("feed").child("Davis");
-        listViewFeed = (ListView) findViewById(R.id.ListViewFeed);
-
-        final ArrayAdapter<String> arrayAdapterDavis = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, feedArrayDavis);
-
-        listViewFeed.setAdapter(arrayAdapterDavis);
-
-        /*
         btnFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
            if (radioButtonDavis.isChecked())
            {
-
+            whichFeed = "Davis";
 
            }
            else  if (radioButtonTraf.isChecked())
            {
-
+               whichFeed = "Trafalgar";
 
            }
+           else if (radioButtonHMC.isChecked())
+           {
+               whichFeed = "HMC";
+           }
 
-            }
-        });*/
-
-
-
-        mDatabase.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String value = dataSnapshot.getValue(String.class);
-
-                    feedArrayDavis.add(value);
-
-
-                //Collections.reverse(feedArray); // this to reverse the array so the lastest post will be on top
-                arrayAdapterDavis.notifyDataSetChanged();
-            }
-
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
+                Intent intent = new Intent(FilterActivity.this, DisplayFeedActivity.class);
+                //Create the bundle
+                Bundle bundle = new Bundle();
+                //Add your data to bundle
+                bundle.putString("whichFeed", whichFeed);
+                //Add the bundle to the intent
+                intent.putExtras(bundle);
+                startActivity(intent);
+                finish();
             }
         });
 
