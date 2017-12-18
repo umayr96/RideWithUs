@@ -20,7 +20,6 @@
     android:compatibleWidthLimitDp="10"
     android:largestWidthLimitDp="5"/>
     -->
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -60,7 +59,11 @@
         <activity android:name=".VerificationCodeActivity" />
         <activity android:name=".DriverPostActivity" />
         <activity android:name=".FilterActivity" />
-        <activity android:name=".DisplayFeedActivity"></activity>
+        <activity android:name=".DisplayFeedActivity" />
+        <activity
+            android:name=".side_navigation"
+            android:label="@string/title_activity_side_navigation"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

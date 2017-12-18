@@ -53,8 +53,8 @@ public class FilterActivity extends AppCompatActivity {
                whichFeed = "HMC";
            }
 
-                // Starting the new displat feed activity and will send the correct value to display
-                Intent intent = new Intent(FilterActivity.this, DisplayFeedActivity.class);
+                // Starting the new display feed activity and will send the correct value to display
+                Intent intent = new Intent(FilterActivity.this, side_navigation.class);
                 //Create the bundle
                 Bundle bundle = new Bundle();
                 //Add your data to bundle

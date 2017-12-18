@@ -1,3 +1,5 @@
+//NOT USING THIS ANYMORE
+
 package com.capstone.ridewithus;
 
 import android.support.v7.app.AppCompatActivity;
