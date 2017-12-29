@@ -105,9 +105,9 @@ public class DriverPostActivity extends AppCompatActivity {
                     DatabaseReference currentUser = FirebaseDatabase.getInstance().getReference().child("feed").child(whichFeed).child(userId);
                     currentUser.setValue(true);
                     // adding all the information to the database under this user
-                    currentUser.child("Time").setValue(time);
-                    currentUser.child("Seats").setValue(seats);
-                    currentUser.child("Charge").setValue(charge);
+                    currentUser.child("time").setValue(time);
+                    currentUser.child("seat").setValue(seats);
+                    currentUser.child("charge").setValue(charge);
 
                     Toast.makeText(DriverPostActivity.this,"Post Has Been Created", Toast.LENGTH_LONG).show();
                     // move to the login page and once the user has been verified they can login

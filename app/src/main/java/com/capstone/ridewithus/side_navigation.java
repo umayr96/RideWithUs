@@ -3,6 +3,8 @@ package com.capstone.ridewithus;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,6 +19,8 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,6 +37,9 @@ public class side_navigation extends AppCompatActivity
     private ArrayList<String> feedArray = new ArrayList<String>();
     private String whichFeed;
     private TextView heading;
+
+    private RecyclerView recyclerView;
+    private DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +66,32 @@ public class side_navigation extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+        myRef = FirebaseDatabase.getInstance().getReference().child("feed").child("/Davis");
+        recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        FirebaseRecyclerAdapter<PostFeed,DisplayFeedActivity.PostFeedViewHolder> adapter = new FirebaseRecyclerAdapter<PostFeed, DisplayFeedActivity.PostFeedViewHolder>(
+                PostFeed.class,
+                R.layout.individual_row,
+                DisplayFeedActivity.PostFeedViewHolder.class,
+                myRef
+        ) {
+
+            @Override
+            protected void populateViewHolder(DisplayFeedActivity.PostFeedViewHolder viewHolder, PostFeed model, int position) {
+
+                viewHolder.setTime(model.getTime());
+                viewHolder.setSeat(model.getSeat());
+                viewHolder.setCharge(model.getCharge());
+
+            }
+        };
+
+        recyclerView.setAdapter(adapter);
+
+        /*
         //Get the bundle
         Bundle bundle = getIntent().getExtras();
         //Extract the data
@@ -107,6 +140,7 @@ public class side_navigation extends AppCompatActivity
 
             }
         });
+        */
     }
 
     @Override
@@ -164,5 +198,27 @@ public class side_navigation extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public static class PostFeedViewHolder extends RecyclerView.ViewHolder{
+        TextView timeText, seatText,chargeText;
+        public PostFeedViewHolder(View itemView) {
+            super(itemView);
+            timeText = (TextView)itemView.findViewById(R.id.timeDisplay);
+            seatText = (TextView)itemView.findViewById(R.id.seatDisplay);
+            chargeText = (TextView)itemView.findViewById(R.id.chargeDisplay);
+        }
+
+        public void setTime(String time) {
+            timeText.setText(time);
+        }
+
+        public void setSeat(String seat) {
+            seatText.setText(seat);
+        }
+
+        public void setCharge(String charge) {
+            chargeText.setText(charge);
+        }
     }
 }
