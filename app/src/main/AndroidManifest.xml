@@ -64,6 +64,7 @@
             android:name=".side_navigation"
             android:label="@string/title_activity_side_navigation"
             android:theme="@style/AppTheme" />
+        <activity android:name=".Chat"></activity>
     </application>
 
 </manifest>

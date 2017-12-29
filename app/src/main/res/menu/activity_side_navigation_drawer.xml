@@ -5,19 +5,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@android:drawable/ic_menu_edit"
-            android:title="Profile" />
+            android:id="@+id/nav_notification"
+            android:icon="@android:drawable/ic_menu_compass"
+            android:title="Notification" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_settings"
             android:icon="@android:drawable/ic_menu_preferences"
             android:title="Settings" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_paypal"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="PayPal" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_help"
             android:icon="@android:drawable/ic_menu_info_details"
             android:title="Help" />
     </group>
@@ -29,7 +29,7 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_signout"
                 android:icon="@android:drawable/ic_menu_revert"
                 android:title="Signout" />
         </menu>
