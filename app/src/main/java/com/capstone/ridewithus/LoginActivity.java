@@ -40,20 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         // setting up the database connection
         // getting current state of database
         mAuth = FirebaseAuth.getInstance();
-        // creating a listener
-        fireBaseAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); //getting the cuurent login user
-                if ((user!=null) && (user.isEmailVerified())) // if the user is not null and exist in the database will move to the next activity
-                {
-                    Intent intent = new Intent(LoginActivity.this, DrivingOrRidingActivity.class);
-                    startActivity(intent);
-                    finish();
-                    return;
-                }
-            }
-        };
 
         // this is for the Login Proccess
         btnEnter.setOnClickListener(new View.OnClickListener() {
