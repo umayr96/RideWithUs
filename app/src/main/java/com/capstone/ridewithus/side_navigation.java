@@ -3,6 +3,7 @@ package com.capstone.ridewithus;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
@@ -48,7 +49,7 @@ public class side_navigation extends AppCompatActivity
     private TextView navEmail,navName;
 
     private RecyclerView recyclerView;
-    private DatabaseReference myRef,email;
+    private DatabaseReference myRef;
     private FirebaseAuth mAuth;
 
     @Override
@@ -75,6 +76,33 @@ public class side_navigation extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // this displays the users information at the side bar top
+        myRef = FirebaseDatabase.getInstance().getReference().child("users");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                mAuth = FirebaseAuth.getInstance();
+                String userId = mAuth.getCurrentUser().getUid();
+                String email = dataSnapshot.child(userId).child("Email").getValue(String.class);
+                String fName = dataSnapshot.child(userId).child("First Name").getValue(String.class);
+                String lName = dataSnapshot.child(userId).child("Last Name").getValue(String.class);
+
+               View headerView = navigationView.getHeaderView(0);
+                navEmail = (TextView) headerView.findViewById(R.id.navEmailTextView);
+                navEmail.setText(email);
+
+                navName = (TextView) headerView.findViewById(R.id.navFullNameTextView);
+                navName.setText(fName + " " + lName);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        // end of displaying the users information
 
         //Get the bundle
         Bundle bundle = getIntent().getExtras();
