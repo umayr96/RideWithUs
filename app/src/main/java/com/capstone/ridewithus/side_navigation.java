@@ -220,31 +220,32 @@ public class side_navigation extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        //here is the main place where we need to work on.
         int id=item.getItemId();
         switch (id){
 
             case R.id.nav_home:
-                //Intent h= new Intent(side_navigation.this,side_navigation.class);
+                //Intent h = new Intent(side_navigation.this,side_navigation.class);
                 //startActivity(h);
                 break;
             case R.id.nav_chat:
-                Intent i= new Intent(side_navigation.this,ChatActivity.class);
-                startActivity(i);
+                Intent c = new Intent(side_navigation.this,ChatActivity.class);
+                startActivity(c);
                 break;
             case R.id.nav_paypal:
-                Intent g= new Intent(side_navigation.this,PaypalActivity.class);
-                startActivity(g);
+                Intent p = new Intent(side_navigation.this,PaypalActivity.class);
+                startActivity(p);
                 break;
             case R.id.nav_settings:
-                Intent s= new Intent(side_navigation.this,SettingsActivity.class);
+                Intent s = new Intent(side_navigation.this,SettingsActivity.class);
                 startActivity(s);
                 break;
             case R.id.nav_help:
+                Intent he = new Intent(side_navigation.this,HelpActivity.class);
+                startActivity(he);
                 break;
             case R.id.nav_signout:
-                Intent t= new Intent(side_navigation.this,SignoutActivity.class);
-                startActivity(t);
+                Intent so = new Intent(side_navigation.this,SignoutActivity.class);
+                startActivity(so);
                 break;
         }
 

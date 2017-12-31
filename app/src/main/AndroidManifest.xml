@@ -65,7 +65,11 @@
             android:name=".SettingsActivity"
             android:label="Settings"
             android:theme="@style/AppTheme" />
-        <activity android:name=".SignoutActivity"></activity>
+        <activity android:name=".SignoutActivity" />
+        <activity
+            android:name=".HelpActivity"
+            android:label="Help"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

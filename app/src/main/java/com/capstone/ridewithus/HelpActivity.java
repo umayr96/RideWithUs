@@ -14,13 +14,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class ChatActivity extends AppCompatActivity
+public class HelpActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
+        setContentView(R.layout.activity_help);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -83,27 +83,27 @@ public class ChatActivity extends AppCompatActivity
         switch (id){
 
             case R.id.nav_home:
-                Intent h = new Intent(ChatActivity.this,side_navigation.class);
+                Intent h = new Intent(HelpActivity.this,side_navigation.class);
                 startActivity(h);
                 break;
             case R.id.nav_chat:
-                Intent c = new Intent(ChatActivity.this,ChatActivity.class);
+                Intent c = new Intent(HelpActivity.this,ChatActivity.class);
                 startActivity(c);
                 break;
             case R.id.nav_paypal:
-                Intent p = new Intent(ChatActivity.this,PaypalActivity.class);
+                Intent p = new Intent(HelpActivity.this,PaypalActivity.class);
                 startActivity(p);
                 break;
             case R.id.nav_settings:
-                Intent s = new Intent(ChatActivity.this,SettingsActivity.class);
+                Intent s = new Intent(HelpActivity.this,SettingsActivity.class);
                 startActivity(s);
                 break;
             case R.id.nav_help:
-                Intent he = new Intent(ChatActivity.this,HelpActivity.class);
+                Intent he = new Intent(HelpActivity.this,HelpActivity.class);
                 startActivity(he);
                 break;
             case R.id.nav_signout:
-                Intent so = new Intent(ChatActivity.this,SignoutActivity.class);
+                Intent so = new Intent(HelpActivity.this,SignoutActivity.class);
                 startActivity(so);
                 break;
         }
