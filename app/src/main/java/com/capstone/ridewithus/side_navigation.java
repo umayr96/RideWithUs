@@ -1,5 +1,6 @@
 package com.capstone.ridewithus;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -181,11 +182,10 @@ public class side_navigation extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        FragmentManager fragmentManager = getFragmentManager();
 
-        if (id == R.id.nav_notification) {
-//            Intent intent = new Intent(side_navigation.this, ChatActivity.class);
-//            startActivity(intent);
-//            finish();
+        if (id == R.id.nav_chat) {
+            fragmentManager.beginTransaction().replace(R.id.content_frame, new ChatActivity()).commit();
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_paypal) {
