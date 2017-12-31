@@ -37,6 +37,9 @@ import java.util.ArrayList;
 
 public class side_navigation extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    DrawerLayout drawer;
+    NavigationView navigationView;
+    Toolbar toolbar = null;
 
     private DatabaseReference mDatabase;
     private ListView ListViewFeed;
@@ -64,13 +67,13 @@ public class side_navigation extends AppCompatActivity
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         //Get the bundle
@@ -189,21 +192,32 @@ public class side_navigation extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        FragmentManager fragmentManager = getFragmentManager();
+        //here is the main place where we need to work on.
+        int id=item.getItemId();
+        switch (id){
 
-        if (id == R.id.nav_chat) {
-            fragmentManager.beginTransaction().replace(R.id.content_frame, new ChatActivity()).commit();
-        } else if (id == R.id.nav_settings) {
-
-        } else if (id == R.id.nav_paypal) {
-
-        } else if (id == R.id.nav_help) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_signout) {
-
+            case R.id.nav_home:
+                //Intent h= new Intent(side_navigation.this,side_navigation.class);
+                //startActivity(h);
+                break;
+            case R.id.nav_chat:
+                Intent i= new Intent(side_navigation.this,ChatActivity.class);
+                startActivity(i);
+                break;
+            case R.id.nav_paypal:
+                Intent g= new Intent(side_navigation.this,PaypalActivity.class);
+                startActivity(g);
+                break;
+            case R.id.nav_settings:
+                Intent s= new Intent(side_navigation.this,SettingsActivity.class);
+                startActivity(s);
+                break;
+            case R.id.nav_help:
+                break;
+            case R.id.nav_signout:
+                Intent t= new Intent(side_navigation.this,SignoutActivity.class);
+                startActivity(t);
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

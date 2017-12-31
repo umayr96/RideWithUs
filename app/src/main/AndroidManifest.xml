@@ -9,17 +9,6 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-    <!--
-    <supports-screens android:resizeable="true"
-    android:smallScreens="true"
-    android:normalScreens="true"
-    android:largeScreens="true"
-    android:xlargeScreens="true"
-    android:anyDensity="true"
-    android:requiresSmallestWidthDp="5"
-    android:compatibleWidthLimitDp="10"
-    android:largestWidthLimitDp="5"/>
-    -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -62,9 +51,21 @@
         <activity android:name=".DisplayFeedActivity" />
         <activity
             android:name=".side_navigation"
-            android:label="@string/title_activity_side_navigation"
+            android:label="Home"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Chat"></activity>
+        <activity
+            android:name=".ChatActivity"
+            android:label="Chat"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".PaypalActivity"
+            android:label="PayPal"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Settings"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".SignoutActivity"></activity>
     </application>
 
 </manifest>
