@@ -110,7 +110,6 @@ public class DriverPostActivity extends AppCompatActivity {
                     currentUser.child("charge").setValue(charge);
 
                     Toast.makeText(DriverPostActivity.this,"Post Has Been Created", Toast.LENGTH_LONG).show();
-                    // move to the login page and once the user has been verified they can login
                     Intent intent = new Intent(DriverPostActivity.this, FilterActivity.class);
                     startActivity(intent);
                     finish();

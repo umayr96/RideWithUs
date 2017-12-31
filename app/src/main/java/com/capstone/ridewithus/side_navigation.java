@@ -23,11 +23,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -38,10 +42,11 @@ public class side_navigation extends AppCompatActivity
     private ListView ListViewFeed;
     private ArrayList<String> feedArray = new ArrayList<String>();
     private String whichFeed;
-    private TextView heading;
+    private TextView navEmail,navName;
 
     private RecyclerView recyclerView;
-    private DatabaseReference myRef;
+    private DatabaseReference myRef,email;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,12 +73,15 @@ public class side_navigation extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        //Get the bundle
+        Bundle bundle = getIntent().getExtras();
+        //Extract the data
+        whichFeed = bundle.getString("whichFeed");
 
-        myRef = FirebaseDatabase.getInstance().getReference().child("feed").child("/Davis");
+        myRef = FirebaseDatabase.getInstance().getReference().child("feed").child("/"+ whichFeed);
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         FirebaseRecyclerAdapter<PostFeed,DisplayFeedActivity.PostFeedViewHolder> adapter = new FirebaseRecyclerAdapter<PostFeed, DisplayFeedActivity.PostFeedViewHolder>(
                 PostFeed.class,
                 R.layout.individual_row,

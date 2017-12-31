@@ -31,9 +31,9 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // setting up the database connection
+        // setting up the database connectionmAuth = FirebaseAuth.getInstance();
         // getting current state of database
-        mAuth = FirebaseAuth.getInstance();
+
 
         // seeting the varaibles
         btnEnter = (Button) findViewById(R.id.btnEnter);
