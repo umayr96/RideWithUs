@@ -59,12 +59,13 @@ public class side_navigation extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton add = (FloatingActionButton) findViewById(R.id.add);
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent h = new Intent(side_navigation.this,DriverPostActivity.class);
+                startActivity(h);
+                finish();
             }
         });
 
@@ -209,7 +210,9 @@ public class side_navigation extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_filter) {
+            Intent f = new Intent(side_navigation.this,FilterActivity.class);
+            startActivity(f);
             return true;
         }
 
@@ -223,10 +226,10 @@ public class side_navigation extends AppCompatActivity
         int id=item.getItemId();
         switch (id){
 
-            case R.id.nav_home:
+            //case R.id.nav_home:
                 //Intent h = new Intent(side_navigation.this,side_navigation.class);
                 //startActivity(h);
-                break;
+                //break;
             case R.id.nav_chat:
                 Intent c = new Intent(side_navigation.this,ChatActivity.class);
                 startActivity(c);
