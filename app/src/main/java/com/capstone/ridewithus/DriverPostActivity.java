@@ -11,6 +11,7 @@ import android.widget.Filter;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.TextClock;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,8 +19,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class DriverPostActivity extends AppCompatActivity {
 
@@ -30,7 +34,8 @@ public class DriverPostActivity extends AppCompatActivity {
     private EditText chargeText;
     private Button btnPost;
     private String whichFeed;
-
+    private DatabaseReference myRef;
+    private String fName, lName;
     private FirebaseAuth mAuth;
     private FirebaseUser mFirebaseUser;
     private FirebaseAuth.AuthStateListener fireBaseAuthListener;
@@ -98,16 +103,36 @@ public class DriverPostActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    // sending the information to the database
-                    // if it is succesful then it will add the user to the database with special key
-                    // getting the unique user id and assigning it this account
-                    String userId = mAuth.getCurrentUser().getUid();
-                    DatabaseReference currentUser = FirebaseDatabase.getInstance().getReference().child("feed").child(whichFeed).child(userId);
-                    currentUser.setValue(true);
-                    // adding all the information to the database under this user
-                    currentUser.child("time").setValue(time);
-                    currentUser.child("seat").setValue(seats);
-                    currentUser.child("charge").setValue(charge);
+                    // getting the user name so it can be posted in the feed
+                    myRef = FirebaseDatabase.getInstance().getReference().child("users");
+                    myRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                            mAuth = FirebaseAuth.getInstance();
+                            String userId = mAuth.getCurrentUser().getUid();
+                             fName = dataSnapshot.child(userId).child("First Name").getValue(String.class);
+                             lName = dataSnapshot.child(userId).child("Last Name").getValue(String.class);
+
+                            // sending the information to the database
+                            // if it is succesful then it will add the user to the database with special key
+                            // getting the unique user id and assigning it this account
+                            DatabaseReference currentUser = FirebaseDatabase.getInstance().getReference().child("feed").child(whichFeed).child(userId);
+                            currentUser.setValue(true);
+                            // adding all the information to the database under this user
+                            currentUser.child("time").setValue(time);
+                            currentUser.child("seat").setValue(seats);
+                            currentUser.child("charge").setValue(charge);
+                            currentUser.child("driverName").setValue(fName + " " + lName);
+
+                        }
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                    // end off getting user info
+
 
                     Toast.makeText(DriverPostActivity.this,"Post Has Been Created", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(DriverPostActivity.this, FilterActivity.class);

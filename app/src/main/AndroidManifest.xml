@@ -45,7 +45,6 @@
         <activity android:name=".DrivingOrRidingActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".VerificationCodeActivity" />
         <activity android:name=".DriverPostActivity" />
         <activity android:name=".FilterActivity" />
         <activity android:name=".DisplayFeedActivity" />

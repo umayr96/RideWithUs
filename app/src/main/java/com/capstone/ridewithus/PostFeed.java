@@ -6,15 +6,16 @@ package com.capstone.ridewithus;
 
 public class PostFeed {
 
-    private String time, seat, charge;
+    private String time, seat, charge, driverName;
 
     public PostFeed() {
     }
 
-    public PostFeed(String time, String seat, String charge) {
+    public PostFeed(String time, String seat, String charge, String driverName) {
         this.time = time;
         this.seat = seat;
         this.charge = charge;
+        this.driverName = driverName;
     }
 
     public String getTime() {
@@ -39,5 +40,13 @@ public class PostFeed {
 
     public void setCharge(String charge) {
         this.charge = charge;
+    }
+
+    public String getDriverName() {
+        return driverName;
+    }
+
+    public void setDriverName(String driverName) {
+        this.driverName = driverName;
     }
 }
