@@ -19,4 +19,6 @@
     <string name="seat">Seat :</string>
     <string name="timedisplay">timeDisplay</string>
     <string name="time">Time :</string>
+    <string name="driver_name">Driver Name</string>
+    <string name="join_the_ride">Join the Ride</string>
 </resources>
