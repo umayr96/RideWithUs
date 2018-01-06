@@ -40,6 +40,7 @@ public class side_navigation extends AppCompatActivity
     private ArrayList<String> feedArray = new ArrayList<String>();
     private String whichFeed;
     private TextView navEmail,navName;
+    private Button btnJoinTest;
 
     private RecyclerView recyclerView;
     private DatabaseReference myRef;
@@ -51,6 +52,17 @@ public class side_navigation extends AppCompatActivity
         setContentView(R.layout.activity_side_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        btnJoinTest = (Button) findViewById(R.id.btnJoinTest);
+        btnJoinTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(side_navigation.this, RiderInformationActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
 
         FloatingActionButton add = (FloatingActionButton) findViewById(R.id.add);
         add.setOnClickListener(new View.OnClickListener() {
