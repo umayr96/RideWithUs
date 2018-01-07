@@ -49,7 +49,6 @@
         android:id="@+id/chatEditTextView"
         android:layout_width="250dp"
         android:layout_height="38dp"
-        android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
