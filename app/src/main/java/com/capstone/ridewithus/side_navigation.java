@@ -41,6 +41,7 @@ public class side_navigation extends AppCompatActivity
     private String whichFeed;
     private TextView navEmail,navName;
     private Button btnJoinTest;
+    private TextView feedName;
 
     private RecyclerView recyclerView;
     private DatabaseReference myRef;
@@ -114,6 +115,9 @@ public class side_navigation extends AppCompatActivity
         Bundle bundle = getIntent().getExtras();
         //Extract the data
         whichFeed = bundle.getString("whichFeed");
+
+        feedName = (TextView) findViewById(R.id.feedNameTxt);
+        feedName.setText(whichFeed+" Posts");
 
         myRef = FirebaseDatabase.getInstance().getReference().child("feed").child("/"+ whichFeed);
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
