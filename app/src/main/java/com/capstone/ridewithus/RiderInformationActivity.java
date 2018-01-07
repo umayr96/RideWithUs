@@ -42,7 +42,7 @@ public class RiderInformationActivity extends AppCompatActivity {
                     // setting up firebase connection with the correct path to chat
                     DatabaseReference currentUser = FirebaseDatabase.getInstance().getReference().child("chat");
                     // saving the value got from the user to firebase
-                    currentUser.child(addressText.getText().toString()).setValue(addressText.getText().toString());
+                    currentUser.child(addressText.getText().toString()).setValue("Hey I Would like to join your ride - ");
 
                     // setting up firebase connection with the correct path to rider Adddress
                     currentUser = FirebaseDatabase.getInstance().getReference().child("riderAddress");
