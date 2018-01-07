@@ -23,6 +23,24 @@ public class RiderInformationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rider_information);
 
+        Button back = (Button) findViewById(R.id.btnBack);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // moving to the chat page
+                Intent intent = new Intent(RiderInformationActivity.this, side_navigation.class);
+                //Create the bundle
+                Bundle bundle = new Bundle();
+                //Add your data to bundle
+                bundle.putString("whichFeed", "Davis");
+                //Add the bundle to the intent
+                intent.putExtras(bundle);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
+
         // getting the text from the user
         addressText = (TextView) findViewById(R.id.addressEditText);
         cityText = (TextView) findViewById(R.id.cityEditText);

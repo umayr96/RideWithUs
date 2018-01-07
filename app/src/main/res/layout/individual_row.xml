@@ -97,6 +97,11 @@
                 android:text="@string/charge" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dollar" />
+
+            <TextView
                 android:id="@+id/chargeDisplay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
