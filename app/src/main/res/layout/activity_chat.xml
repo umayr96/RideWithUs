@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg2"
     tools:context="com.capstone.ridewithus.ChatActivity">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Chat"
+        android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -20,16 +22,17 @@
 
     <Button
         android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/ic_close_light"
+        app:layout_constraintEnd_toStartOf="@+id/textView7"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/listViewChat"
@@ -37,9 +40,10 @@
         android:layout_height="346dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        app:layout_constraintVertical_bias="0.086" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <EditText
         android:id="@+id/chatEditTextView"
@@ -49,32 +53,35 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.119"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listViewChat"
-        app:layout_constraintVertical_bias="0.151" />
+        app:layout_constraintTop_toBottomOf="@+id/listViewChat" />
 
     <Button
         android:id="@+id/btnSendMessage"
         android:layout_width="wrap_content"
         android:layout_height="38dp"
+        android:layout_marginRight="16dp"
+        android:background="#F89B9B"
         android:text="Send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toEndOf="@+id/chatEditTextView"
-        app:layout_constraintTop_toBottomOf="@+id/listViewChat"
-        app:layout_constraintVertical_bias="0.166" />
+        app:layout_constraintTop_toBottomOf="@+id/listViewChat" />
 
     <Button
         android:id="@+id/btnStartRideDriver"
-        android:layout_width="131dp"
+        android:layout_width="342dp"
         android:layout_height="42dp"
-        android:text="Start Ride"
+        android:layout_marginBottom="444dp"
+        android:background="#F89B9B"
+        android:text="Start the ride"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chatEditTextView" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
