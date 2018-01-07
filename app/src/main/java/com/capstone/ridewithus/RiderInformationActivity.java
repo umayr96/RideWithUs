@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -14,47 +15,57 @@ public class RiderInformationActivity extends AppCompatActivity {
 
     private Button btnJoinRide;
     private TextView addressText;
+    FirebaseDatabase wDatabase = FirebaseDatabase.getInstance();
+    DatabaseReference wmyRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rider_information);
 
+        // getting the text from the user
         addressText = (TextView) findViewById(R.id.addressEditText);
 
+        // setting the on clink for the buttoin when presses
         btnJoinRide = (Button) findViewById(R.id.btnJoinRide2);
         btnJoinRide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                DatabaseReference currentUser = FirebaseDatabase.getInstance().getReference().child("chat");
-                currentUser.setValue(true);
-                currentUser.child(addressText.getText().toString()).setValue(addressText.getText().toString());
+                // checking if the user has entered nothing if it did then display message ig there is text then move forward
+                if (addressText.getText().toString().equalsIgnoreCase(""))
+                {
+                    Toast.makeText(RiderInformationActivity.this,"Please Fill in the address field", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    // setting up firebase connection with the correct path to chat
+                    DatabaseReference currentUser = FirebaseDatabase.getInstance().getReference().child("chat");
+                    // saving the value got from the user to firebase
+                    currentUser.child(addressText.getText().toString()).setValue(addressText.getText().toString());
 
-                currentUser = FirebaseDatabase.getInstance().getReference().child("riderAddress");
-                currentUser.setValue(true);
-                currentUser.child("address").setValue(addressText.getText().toString());
+                    // setting up firebase connection with the correct path to rider Adddress
+                    currentUser = FirebaseDatabase.getInstance().getReference().child("riderAddress");
+                    // saving the value got from the user to firebase
+                    currentUser.child("address").setValue(addressText.getText().toString());
+
+                    Toast.makeText(RiderInformationActivity.this,"You have joined this ride, your driver will contact you soon. Thank You", Toast.LENGTH_LONG).show();
+
+                    // moving to the chat page
+                    Intent intent = new Intent(RiderInformationActivity.this, side_navigation.class);
+                    //Create the bundle
+                    Bundle bundle = new Bundle();
+                    //Add your data to bundle
+                    bundle.putString("whichFeed", "Davis");
+                    //Add the bundle to the intent
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    finish();
+                    return;
 
 
+                }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                Intent intent = new Intent(RiderInformationActivity.this, ChatActivity.class);
-                startActivity(intent);
-                finish();
-                return;
             }
         });
     }
