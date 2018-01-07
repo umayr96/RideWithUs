@@ -14,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RiderInformationActivity extends AppCompatActivity {
 
     private Button btnJoinRide;
-    private TextView addressText;
+    private TextView addressText, cityText;
     FirebaseDatabase wDatabase = FirebaseDatabase.getInstance();
     DatabaseReference wmyRef;
 
@@ -25,6 +25,7 @@ public class RiderInformationActivity extends AppCompatActivity {
 
         // getting the text from the user
         addressText = (TextView) findViewById(R.id.addressEditText);
+        cityText = (TextView) findViewById(R.id.cityEditText);
 
         // setting the on clink for the buttoin when presses
         btnJoinRide = (Button) findViewById(R.id.btnJoinRide2);
@@ -33,7 +34,7 @@ public class RiderInformationActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 // checking if the user has entered nothing if it did then display message ig there is text then move forward
-                if (addressText.getText().toString().equalsIgnoreCase(""))
+                if ((addressText.getText().toString().equalsIgnoreCase("")) || (cityText.getText().toString().equalsIgnoreCase("")))
                 {
                     Toast.makeText(RiderInformationActivity.this,"Please Fill in the address field", Toast.LENGTH_LONG).show();
                 }
@@ -47,7 +48,7 @@ public class RiderInformationActivity extends AppCompatActivity {
                     // setting up firebase connection with the correct path to rider Adddress
                     currentUser = FirebaseDatabase.getInstance().getReference().child("riderAddress");
                     // saving the value got from the user to firebase
-                    currentUser.child("address").setValue(addressText.getText().toString());
+                    currentUser.child("address").setValue(addressText.getText().toString() + " " + cityText.getText().toString() + " ON Canada");
 
                     Toast.makeText(RiderInformationActivity.this,"You have joined this ride, your driver will contact you soon. Thank You", Toast.LENGTH_LONG).show();
 
