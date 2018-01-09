@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText mEditTextEmail, mEditTextPassword;
-    private Button btnEnter, btnRegister;
+    private Button btnEnter, btnRegister, btnPasswordReset;
 
     // creating Authentication Variables to use in later on
     private FirebaseAuth mAuth;
@@ -79,6 +79,37 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        // this is for the reset password
+        btnPasswordReset = (Button) (findViewById(R.id.btnPasswordReset));
+        btnPasswordReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String emailAddress = mEditTextEmail.getText().toString() + "@sheridancollege.ca"; // getting the username from the user
+                // if there is no username entered then display message
+                if (mEditTextEmail.getText().toString().equalsIgnoreCase(""))
+
+                    {Toast.makeText(LoginActivity.this,"Please enter the username associated with the email account", Toast.LENGTH_LONG).show();
+
+                }
+                // if there is a username then send the email
+                else
+                {
+                    mAuth.sendPasswordResetEmail(emailAddress)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        // Log.d(TAG, "Email sent.");
+                                    }
+                                }
+                            });
+                    Toast.makeText(LoginActivity.this,"Email has been sent please check email and follow instructions to reset the password", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+    // end of password reset
 
         // this is when the user clicks the register button it will move to the register activity
         btnRegister.setOnClickListener(new View.OnClickListener() {
