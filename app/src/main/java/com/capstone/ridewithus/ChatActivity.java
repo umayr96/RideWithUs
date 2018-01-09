@@ -106,7 +106,7 @@ public class ChatActivity extends AppCompatActivity {
                     // setting up firebase connection with the correct path to chat
                     DatabaseReference currentUser = FirebaseDatabase.getInstance().getReference().child("chat");
                     // saving the value got from the user to firebase
-                    currentUser.child(chatEditTextView.getText().toString()).setValue(chatEditTextView.getText().toString());
+                    currentUser.child(chatEditTextView.getText().toString()).setValue(chatEditTextView.getText().toString() + " -Driver");
                     chatEditTextView.setText("");
                 }
 
