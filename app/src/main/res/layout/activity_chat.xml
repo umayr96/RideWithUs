@@ -48,7 +48,7 @@
     <EditText
         android:id="@+id/chatEditTextView"
         android:layout_width="250dp"
-        android:layout_height="38dp"
+        android:layout_height="45dp"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
