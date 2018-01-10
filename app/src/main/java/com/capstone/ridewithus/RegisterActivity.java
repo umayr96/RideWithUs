@@ -31,6 +31,18 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        Button back = (Button) findViewById(R.id.btnBack);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // moving to the chat page
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+        });
+
         // setting up the database connectionmAuth = FirebaseAuth.getInstance();
         // getting current state of database
 

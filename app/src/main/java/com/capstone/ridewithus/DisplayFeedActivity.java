@@ -1,5 +1,3 @@
-//NOT USING THIS ANYMORE
-
 package com.capstone.ridewithus;
 
 import android.content.Intent;
